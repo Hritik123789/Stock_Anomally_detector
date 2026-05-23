@@ -15,26 +15,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
-# Expose ports
-EXPOSE 8000 8501
+# Expose port
+EXPOSE 8000
 
-# Create startup script
-RUN echo '#!/bin/bash\n\
-# Train model if not exists\n\
-if [ ! -f "model/lstm_autoencoder.pt" ]; then\n\
-    echo "Training model..."\n\
-    cd model\n\
-    python preprocess.py\n\
-    python train.py\n\
-    cd ..\n\
-fi\n\
-\n\
-# Start both services\n\
-echo "Starting FastAPI..."\n\
-uvicorn api.main:app --host 0.0.0.0 --port 8000 &\n\
-\n\
-echo "Starting Streamlit..."\n\
-streamlit run dashboard/app.py --server.port 8501 --server.address 0.0.0.0\n\
-' > /app/start.sh && chmod +x /app/start.sh
+# Train model on build (comment out if using persistent disk)
+RUN cd model && python preprocess.py && python train.py && cd ..
 
-CMD ["/app/start.sh"]
+# Start FastAPI only
+CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
