@@ -1,0 +1,15 @@
+yfinance
+pandas
+numpy
+scikit-learn
+torch
+fastapi
+uvicorn
+websockets
+websocket-client
+streamlit
+plotly
+finnhub-python
+pytz
+schedule
+ta
