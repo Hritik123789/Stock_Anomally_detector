@@ -2,6 +2,14 @@
 
 LSTM Autoencoder-based anomaly detection system for live stock data with real-time visualization.
 
+## 🚀 Live Demo
+
+**Dashboard**: [https://stockanomallydetector-8kupsufidl72b7fimwbeky.streamlit.app/](https://stockanomallydetector-8kupsufidl72b7fimwbeky.streamlit.app/)
+
+**Backend API**: [https://stock-anomaly-api.onrender.com](https://stock-anomaly-api.onrender.com)
+
+> **Note**: Free tier services may take 30-60 seconds to wake up from inactivity.
+
 ## Features
 
 - **Real-time Data**: Finnhub WebSocket integration with yfinance fallback
