@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: stock-anomaly-api
+    env: python
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: "pip install -r requirements.txt && cd model && python preprocess.py && python train.py && cd .."
+    startCommand: "uvicorn api.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0

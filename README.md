@@ -180,6 +180,23 @@ cd ..
 - Check WebSocket connection in browser console
 - Restart both server and dashboard
 
+## Deployment
+
+### Local Development
+Follow the setup instructions above to run locally.
+
+### Cloud Deployment
+Choose your preferred platform:
+
+- **[AWS Deployment Guide](DEPLOYMENT_AWS.md)** - EC2, ECS, Lambda options
+- **[GCP Deployment Guide](DEPLOYMENT_GCP.md)** - Compute Engine, Cloud Run, GKE options  
+- **[Docker Deployment Guide](DEPLOYMENT_DOCKER.md)** - Works on any platform
+
+**Quick Docker Start**:
+```bash
+docker-compose up --build
+```
+
 ## Requirements
 
 - Python 3.8+

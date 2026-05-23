@@ -1,4 +1,5 @@
 import json
+import os
 import time
 from datetime import datetime
 import numpy as np
@@ -7,7 +8,8 @@ import plotly.graph_objects as go
 import streamlit as st
 import websocket
 
-FASTAPI_WS_URL = "ws://localhost:8000/ws"
+# Use environment variable for deployment, fallback to localhost
+FASTAPI_WS_URL = os.getenv("FASTAPI_WS_URL", "ws://localhost:8000/ws")
 
 if "price_history" not in st.session_state:
     st.session_state.price_history = []
