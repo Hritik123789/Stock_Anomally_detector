@@ -18,8 +18,8 @@ COPY . .
 # Expose port
 EXPOSE 8000
 
-# Train model on build (comment out if using persistent disk)
-RUN cd model && python preprocess.py && python train.py && cd ..
+# Fetch data and train model on build
+RUN cd data && python fetch_data.py && cd ../model && python preprocess.py && python train.py && cd ..
 
 # Start FastAPI only
 CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
